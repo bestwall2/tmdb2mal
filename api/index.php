@@ -1,5 +1,5 @@
 <?php
-  $api_key = "my_api_key"; // Please provide your own TMDb API key.
+  $api_key = "5ec279387e9aa9488ef4d00b22acc451"; // Please provide your own TMDb API key.
   $m = json_decode(file_get_contents("https://api.themoviedb.org/3/tv/$_GET[id]/season/$_GET[s]?api_key=$api_key"));
   $date = $m->air_date;
   $month = explode("-", $date)[1];
