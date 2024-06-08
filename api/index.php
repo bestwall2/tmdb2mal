@@ -56,7 +56,9 @@
   echo "Raw Jikan API Response: $jikan_response\n"; // Debugging line
 
   $x = json_decode($jikan_response);
-  if (!isset($x->data) || !isset($x->data[0]->mal_id)) {
+
+  // Check if the data property exists and is an array
+  if (!isset($x->data) || !is_array($x->data) || empty($x->data)) {
     die('Error: No matching anime found or invalid response from Jikan API.');
   }
 
