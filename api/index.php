@@ -44,7 +44,7 @@
 
   // Fetch anime data from Jikan
   $jikan_url = "https://api.jikan.moe/v4/anime?q=" . urlencode($title) . "&start_date=$yearAndMonth&order_by=start_date";
-  echo "Constructed Jikan API URL: $jikan_url\n"; // Debugging line
+  // echo "Constructed Jikan API URL: $jikan_url\n"; // Debugging line
 
   $jikan_response = file_get_contents($jikan_url);
 
@@ -52,9 +52,7 @@
     die('Error: Failed to fetch anime data from Jikan API.');
   }
 
-  // Print the raw Jikan API response for debugging
-  echo "Raw Jikan API Response: $jikan_response\n"; // Debugging line
-
+  // Parse Jikan API response
   $x = json_decode($jikan_response);
 
   // Check if the data property exists and is an array
@@ -62,5 +60,6 @@
     die('Error: No matching anime found or invalid response from Jikan API.');
   }
 
+  // Output the mal_id of the first entry in the data array
   echo $x->data[0]->mal_id;
 ?>
