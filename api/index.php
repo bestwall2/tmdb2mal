@@ -45,10 +45,12 @@ $title = $y->name;
 // AniList GraphQL query
 $query = '
 {
-  Media(search: "'. $title .'", type: ANIME, startDate_greater: "'. $yearAndMonth .'", startDate_lesser: "'. $yearAndMonth .'") {
+  Media(search: "'. $title .'", type: ANIME) {
     id
     title {
       romaji
+      english
+      native
     }
     startDate {
       year
