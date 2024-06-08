@@ -25,7 +25,7 @@
   $date = $m->air_date;
   $month = explode("-", $date)[1];
   $year = explode("-", $date)[0];
-  $yearAndMonth = $year . '-' . $month;
+  $yearAndMonth = $year . '-' . $month . '-01';  // Adjusted to Y-m-01 format
 
   // Fetch TV show data from TMDb
   $show_url = "https://api.themoviedb.org/3/tv/$id?api_key=$api_key";
