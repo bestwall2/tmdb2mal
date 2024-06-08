@@ -52,6 +52,9 @@
     die('Error: Failed to fetch anime data from Jikan API.');
   }
 
+  // Print the raw Jikan API response for debugging
+  echo "Raw Jikan API Response: $jikan_response\n"; // Debugging line
+
   $x = json_decode($jikan_response);
   if (!isset($x->data) || !isset($x->data[0]->mal_id)) {
     die('Error: No matching anime found or invalid response from Jikan API.');
